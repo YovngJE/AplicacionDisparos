@@ -17,12 +17,12 @@ namespace H_P_II_Clase3
         bool dir = true;
         private List<Bala> balas = new List<Bala>();
 
-        private PictureBox imagenBalaOriginal; 
+        
 
         public Form1()
         {
             InitializeComponent();
-             imagenBalaOriginal = picBala;
+            PicEjemplo.Location = new Point(257, 12);
         }
 
  
@@ -31,8 +31,12 @@ namespace H_P_II_Clase3
         private void btnDisparar_Click_1(object sender, EventArgs e)
         {
 
-            Point posicionInicial = new Point(PicEjemplo.Location.X + PicEjemplo.Width / 2, PicEjemplo.Location.Y);
-            Bala nuevaBala = new Bala(this, posicionInicial, new Size(20, 40), picBala.Image); // Usa la imagen de "picBala"
+             int posX = picBala.Location.X + (picBala.Width / 2) - 10;
+            int posY = picBala.Location.Y;
+
+            
+            Point posicionInicial = new Point(posX, posY);
+            Bala nuevaBala = new Bala(this, posicionInicial, new Size(20, 40), picBala.Image); 
             balas.Add(nuevaBala);
         }
 
@@ -64,19 +68,18 @@ namespace H_P_II_Clase3
 
         private void tmrBala_Tick(object sender, EventArgs e)
         {
-
             for (int i = balas.Count - 1; i >= 0; i--)
             {
-                if (!balas[i].Mover()) // Mueve la bala y verifica si sigue en pantalla
+                if (!balas[i].Mover()) 
                 {
-                    balas.RemoveAt(i); // Elimina la bala de la lista si ya no está en pantalla
+                    balas.RemoveAt(i);
                 }
-                else if (balas[i].ColisionaCon(PicEjemplo)) // Verifica colisión con "PicEjemplo"
+                else if (balas[i].ColisionaCon(PicEjemplo)) 
                 {
-                    // Lógica cuando la bala colisiona con "PicEjemplo"
-                    balas[i].Destruir(); // Destruye la bala
-                    balas.RemoveAt(i); // Elimina la bala de la lista
-                    MessageBox.Show("¡Le diste a la imagen!"); // Mensaje de éxito
+                   
+                    balas[i].Destruir(); 
+                    balas.RemoveAt(i); 
+                   
                 }
             }
         }

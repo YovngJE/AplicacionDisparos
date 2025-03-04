@@ -12,34 +12,34 @@ namespace H_P_II_Clase1
         {
             imagenBala = new PictureBox
             {
-                Image = imagen != null ? (Image)imagen.Clone() : null, // Clona la imagen si existe
+                Image = imagen != null ? (Image)imagen.Clone() : null,
                 SizeMode = PictureBoxSizeMode.Zoom,
                 Size = tamano,
                 Location = posicionInicial,
                 BackColor = Color.Transparent
             };
-            form.Controls.Add(imagenBala); // Agrega la bala al formulario
-            imagenBala.BringToFront(); // Asegura que la bala esté encima de otros controles
+            form.Controls.Add(imagenBala); 
+            imagenBala.BringToFront(); 
         }
 
         public bool Mover()
         {
-            imagenBala.Top -= velocidad; // Mueve la bala hacia arriba
+            imagenBala.Top -= velocidad; 
 
-            if (imagenBala.Top + imagenBala.Height < 0) // Verifica si la bala sale de la pantalla
+            if (imagenBala.Top + imagenBala.Height < 0)
             {
-                Destruir(); // Destruye la bala
-                return false; // Indica que la bala ya no existe
+                Destruir();
+                return false; 
             }
-            return true; // Indica que la bala sigue en pantalla
+            return true;
         }
 
         public void Destruir()
         {
             if (imagenBala != null && !imagenBala.IsDisposed && imagenBala.Parent != null)
             {
-                imagenBala.Parent.Controls.Remove(imagenBala); // Remueve la bala del formulario
-                imagenBala.Dispose(); // Libera los recursos de la bala
+                imagenBala.Parent.Controls.Remove(imagenBala); 
+                imagenBala.Dispose(); 
             }
         }
 
