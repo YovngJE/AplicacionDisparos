@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.btnDesplazar = new System.Windows.Forms.Button();
             this.tmrDesplazar = new System.Windows.Forms.Timer(this.components);
-            this.picBasket = new System.Windows.Forms.PictureBox();
+            this.picBala = new System.Windows.Forms.PictureBox();
             this.PicEjemplo = new System.Windows.Forms.PictureBox();
-            this.tmrDisparos = new System.Windows.Forms.Timer(this.components);
             this.btnDisparar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picBasket)).BeginInit();
+            this.tmrBala = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.picBala)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicEjemplo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,16 +47,23 @@
             this.btnDesplazar.TabIndex = 1;
             this.btnDesplazar.Text = "Desplazar";
             this.btnDesplazar.UseVisualStyleBackColor = true;
+            this.btnDesplazar.Click += new System.EventHandler(this.btnDesplazar_Click_1);
             // 
-            // picBasket
+            // tmrDesplazar
             // 
-            this.picBasket.Image = global::H_P_II_Clase3.Properties.Resources.PngBasket;
-            this.picBasket.Location = new System.Drawing.Point(295, 360);
-            this.picBasket.Name = "picBasket";
-            this.picBasket.Size = new System.Drawing.Size(100, 78);
-            this.picBasket.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBasket.TabIndex = 2;
-            this.picBasket.TabStop = false;
+            this.tmrDesplazar.Enabled = true;
+            this.tmrDesplazar.Tick += new System.EventHandler(this.tmrDesplazar_Tick_1);
+            // 
+            // picBala
+            // 
+            this.picBala.Image = global::H_P_II_Clase3.Properties.Resources.PngBasket;
+            this.picBala.Location = new System.Drawing.Point(321, 380);
+            this.picBala.Name = "picBala";
+            this.picBala.Size = new System.Drawing.Size(55, 58);
+            this.picBala.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBala.TabIndex = 2;
+            this.picBala.TabStop = false;
+            this.picBala.Visible = false;
             // 
             // PicEjemplo
             // 
@@ -76,6 +83,13 @@
             this.btnDisparar.TabIndex = 3;
             this.btnDisparar.Text = "Disparar";
             this.btnDisparar.UseVisualStyleBackColor = true;
+            this.btnDisparar.Click += new System.EventHandler(this.btnDisparar_Click_1);
+            // 
+            // tmrBala
+            // 
+            this.tmrBala.Enabled = true;
+            this.tmrBala.Interval = 50;
+            this.tmrBala.Tick += new System.EventHandler(this.tmrBala_Tick);
             // 
             // Form1
             // 
@@ -83,12 +97,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnDisparar);
-            this.Controls.Add(this.picBasket);
+            this.Controls.Add(this.picBala);
             this.Controls.Add(this.btnDesplazar);
             this.Controls.Add(this.PicEjemplo);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.picBasket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBala)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicEjemplo)).EndInit();
             this.ResumeLayout(false);
 
@@ -99,10 +113,10 @@
         private System.Windows.Forms.PictureBox PicEjemplo;
         private System.Windows.Forms.Button btnDesplazar;
         private System.Windows.Forms.Timer tmrDesplazar;
-        private System.Windows.Forms.PictureBox picBasket;
+        private System.Windows.Forms.PictureBox picBala;
         private System.Windows.Forms.Timer tmrBalas;
-        private System.Windows.Forms.Timer tmrDisparos;
         private System.Windows.Forms.Button btnDisparar;
+        private System.Windows.Forms.Timer tmrBala;
     }
 }
 
